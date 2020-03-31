@@ -1,0 +1,96 @@
+
+> info2602a2@1.0.0 newman /workspace/info2602a2
+> newman run a2collection.json -g globals.json; return 0;
+
+newman
+
+Assignment 2
+
+→ List Pokemon
+  GET https://8080-ec6e3718-a408-44af-827c-ed062249dfcb.ws-us02.gitpod.io/pokemon [200 OK, 146.11KB, 480ms]
+  ✓  Pokemon data should have the attributes pid, attack, defence, sp_attack, sp_defence, speed, hp, height, weight, type1 and type2 with an appropriate value or null
+
+→ Sign Up
+  POST https://8080-ec6e3718-a408-44af-827c-ed062249dfcb.ws-us02.gitpod.io/signup [409 CONFLICT, 332B, 15ms]
+  ✓  Should respond with 'user created' for new user or 'username or email already exists' for pre-existing user
+
+→ Login
+  POST https://8080-ec6e3718-a408-44af-827c-ed062249dfcb.ws-us02.gitpod.io/auth [200 OK, 475B, 17ms]
+  ✓  Returned Access Token
+
+→ Save My Pokemon
+  GET https://8080-ec6e3718-a408-44af-827c-ed062249dfcb.ws-us02.gitpod.io/mypokemon [200 OK, 754B, 19ms]
+  POST https://8080-ec6e3718-a408-44af-827c-ed062249dfcb.ws-us02.gitpod.io/mypokemon [201 CREATED, 312B, 55ms]
+  ✓  Should create a pokemon and add it to the user's listing
+  GET https://8080-ec6e3718-a408-44af-827c-ed062249dfcb.ws-us02.gitpod.io/mypokemon [200 OK, 968B, 17ms]
+
+→ List My Pokemon
+  GET https://8080-ec6e3718-a408-44af-827c-ed062249dfcb.ws-us02.gitpod.io/mypokemon [200 OK, 968B, 16ms]
+  ✓  Pokemon data should have the attributes name and status with the appropriate values
+
+→ Get My Pokemon
+  GET https://8080-ec6e3718-a408-44af-827c-ed062249dfcb.ws-us02.gitpod.io/mypokemon/1 [200 OK, 538B, 20ms]
+  ✓  Pokemon data should have the attributes name and status with the appropriate values
+
+→ Update My Pokemon
+  PUT https://8080-ec6e3718-a408-44af-827c-ed062249dfcb.ws-us02.gitpod.io/mypokemon/1 [200 OK, 300B, 45ms]
+  ✓  Body is correct
+  ✓  Should update the corresponding pokemon
+  GET https://8080-ec6e3718-a408-44af-827c-ed062249dfcb.ws-us02.gitpod.io/mypokemon/1 [200 OK, 537B, 33ms]
+
+→ Delete My Pokemon
+  GET https://8080-ec6e3718-a408-44af-827c-ed062249dfcb.ws-us02.gitpod.io/mypokemon [200 OK, 967B, 22ms]
+  DELETE https://8080-ec6e3718-a408-44af-827c-ed062249dfcb.ws-us02.gitpod.io/mypokemon/1 [204 NO CONTENT, 282B, 51ms]
+  ✓  Should delete pokemon from the user's collection
+  ✓  Should have the appropriate status code
+  GET https://8080-ec6e3718-a408-44af-827c-ed062249dfcb.ws-us02.gitpod.io/mypokemon [200 OK, 754B, 16ms]
+  ┌
+  │ [ { name: 'judy',
+  │     stats:
+  │      { pid: 150,
+  │        name: 'Mewtwo',
+  │        attack: 150,
+  │        defense: 70,
+  │        hp: 106,
+  │        height: 2,
+  │        sp_attack: 194,
+  │        sp_defense: 120,
+  │        speed: 140,
+  │        type1: 'psychic',
+  │        type2: null,
+  │        weight: 122 } },
+  │   { name: 'judy',
+  │     stats:
+  │      { pid: 150,
+  │        name: 'Mewtwo',
+  │        attack: 150,
+  │        defense: 70,
+  │        hp: 106,
+  │        height: 2,
+  │        sp_attack: 194,
+  │        sp_defense: 120,
+  │        speed: 140,
+  │        type1: 'psychic',
+  │        type2: null,
+  │        weight: 122 } } ], 2
+  └
+
+┌─────────────────────────┬────────────────────┬───────────────────┐
+│                         │           executed │            failed │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│              iterations │                  1 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│                requests │                 13 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│            test-scripts │                  8 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│      prerequest-scripts │                  3 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│              assertions │                 10 │                 0 │
+├─────────────────────────┴────────────────────┴───────────────────┤
+│ total run duration: 1362ms                                       │
+├──────────────────────────────────────────────────────────────────┤
+│ total data received: 149.16KB (approx)                           │
+├──────────────────────────────────────────────────────────────────┤
+│ average response time: 62ms [min: 15ms, max: 480ms, s.d.: 121ms] │
+└──────────────────────────────────────────────────────────────────┘

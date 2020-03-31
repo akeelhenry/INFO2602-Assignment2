@@ -1,0 +1,15 @@
+
+
+  Test Suite 1: The Pokelisting Table
+    ✓ Should have an tabulation of pigeon data of the appropriate structure
+    ✓ Should have 5 columns
+    ✓ Should have 50 rows
+    ✓ Should have "Bulbasaur in first column of first row
+    ✓ Should have "Bulbasaur in first column of first row
+    ✓ Should have "Bulbasaur in first column of first row
+    ✓ Should have "Bulbasaur in first column of first row
+    ✓ Should have "Bulbasaur in first column of first row
+
+
+  8 passing (1s)
+
